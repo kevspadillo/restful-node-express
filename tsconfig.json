@@ -6,7 +6,9 @@
         "sourceMap": true,
         "target": "es6",
         "outDir": "./dist",
-        "baseUrl": "./core"
+        "baseUrl": "./core",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
     },
     "include": [
         "core/**/*.ts"
