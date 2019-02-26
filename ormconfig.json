@@ -4,8 +4,8 @@
     "port": 3306,
     "username": "root",
     "password": "",
-    "database": "ims_db",
-    "synchronize": true,
+    "database": "library_db",
+    "synchronize": false,
     "logging": false,
     "entities": [
        "core/models/**/*.ts"

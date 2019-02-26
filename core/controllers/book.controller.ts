@@ -1,19 +1,17 @@
 // core/controllers/book.controller.ts
 
-import {Book} from '../models/book.model';
+import {BookService} from '../services/book.service';
 
 export class BookController {
 
-    private Book: Book = new Book();
+    private BookService : BookService = new BookService();
 
-    constructor() {
-
-    }
+    constructor() {}
 
     /**
      * get
      */
     getBooks() {
-        return this.Book.getBooks();        
+        return this.BookService.getBooks();
     }
 }

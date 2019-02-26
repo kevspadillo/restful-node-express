@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "execute" : "watch 'npm run dev' ./core",
     "dev": "ts-node ./core/server.ts",
     "start": "nodemon ./dist/server.js",
     "prod": "npm run build && npm run start",
@@ -25,5 +26,8 @@
     "tslint": "^5.13.0",
     "typeorm": "^0.2.14",
     "typescript": "^3.3.3333"
+  },
+  "devDependencies": {
+    "watch": "^1.0.2"
   }
 }

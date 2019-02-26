@@ -13,23 +13,9 @@ export class DB {
      * connect
      */
     public connect(): Promise<Connection> {
-
         if (!this.conn) {
-            this.conn =  createConnection({
-                type: "mysql",
-                host: "localhost",
-                port: 3306,
-                username: "root",
-                password: "",
-                database: "ims_db",
-                entities: [
-                    Book
-                ],
-                synchronize: true,
-                logging: false
-            });
+            this.conn =  createConnection();
         }
-
-        return this.conn;
+        return this.conn.then((connection) => connection);
     }
 }

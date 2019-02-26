@@ -22,7 +22,10 @@ export class Routes {
         app.route('/book')
             .get(
                 (req: Request, res: Response) => {
-                    res.status(200).json(this.BookController.getBooks());
+                    const books = this.BookController.getBooks()
+                        .then((books => {
+                            res.status(200).json({data : books});
+                        }));
                 }
             )
             .post(
