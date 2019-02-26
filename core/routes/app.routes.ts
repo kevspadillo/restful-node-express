@@ -22,7 +22,7 @@ export class Routes {
         app.route('/book')
             .get(
                 (req: Request, res: Response) => {
-                    const books = this.BookController.getBooks()
+                    this.BookController.getBooks()
                         .then((books => {
                             res.status(200).json({data : books});
                         }));
@@ -30,32 +30,36 @@ export class Routes {
             )
             .post(
                 (req: Request, res: Response) => {
-                    res.status(200).send({
-                        message: 'POST Books API'
-                    })
+                    this.BookController.createBook(req.body)
+                        .then((result) => {
+                            res.status(200).json(result)
+                        });
                 }
             );
         
         app.route('/book/:bookId')
             .get(
                 (req: Request, res: Response) => {
-                    res.status(200).send({
-                        message: 'GET Book API'
-                    });
+                    this.BookController.getBook(req.params.bookId)
+                        .then((book) => {
+                            res.status(200).json(book)
+                        });
                 }
             )
             .put(
                 (req: Request, res: Response) => {
-                    res.status(200).send({
-                        message: 'PUT Book API'
-                    });
+                    this.BookController.updateBook(req.params.bookId, req.body)
+                        .then((result) => {
+                            res.status(200).json(result)
+                        });
                 }
             )
             .delete(
                 (req: Request, res: Response) => {
-                    res.status(200).send({
-                        message: 'DELETE Book API'
-                    });
+                    this.BookController.deleteBook(req.params.bookId)
+                        .then((result) => {
+                            res.status(200).json(result.affected)
+                        });
                 }
             );
     }
