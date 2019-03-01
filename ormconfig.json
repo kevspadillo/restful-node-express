@@ -8,6 +8,12 @@
     "synchronize": false,
     "logging": false,
     "entities": [
-       "core/models/**/*.ts"
+       "core/models/**/*.js"
+    ],
+    "subscribers": [
+      "src/subscriber/*.js"
+    ],
+    "migrations": [
+      "src/migration/*.js"
     ]
  }

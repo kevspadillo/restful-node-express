@@ -2,7 +2,7 @@
 
 import {Request} from "express";
 import {BookService} from '../services/book.service';
-import { Book } from 'models/book.model';
+import { Book } from '../models/book.model';
 import { InsertResult, DeleteResult, UpdateResult } from 'typeorm';
 
 export class BookController {
